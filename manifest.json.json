@@ -1,0 +1,13 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "J-Letters",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "J-Letters",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "id": "/hoc-tieng-nhat/",
+  "description": "Ứng dụng học bảng chữ cái tiếng Nhật Hiragana, Katakana và Kanji đơn giản và tiện lợi. Có thể học ở mọi lúc mọi nơi để nhớ mặt chữ một cách nhanh chóng!!!"
+}
