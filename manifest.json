@@ -1,0 +1,12 @@
+{
+  "background_color": "#000000",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "J-Letter",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "J-Letters",
+  "start_url": "/",
+  "theme_color": "#000000",
+  "description": "Ứng dụng học bảng chữ cái tiếng Nhật Hiragana, Katakana và Kanji nhanh chóng"
+}
