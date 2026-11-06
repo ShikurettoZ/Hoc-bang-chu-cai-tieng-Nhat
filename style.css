@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('BG-WEB.jpg');
+    background-size: cover;                /* Ép ảnh phóng to phủ kín toàn bộ màn hình */
+    background-position: center;           /* Căn tâm ảnh ra chính giữa */
+    background-repeat: no-repeat;          /* Ngăn tình trạng ảnh bị lặp lại nhiều lần */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.quiz-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 320px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Khung hiển thị chữ to như hình ảnh */
+.char-box {
+    font-size: 90px;
+    font-weight: bold;
+    color: #2c3e50;
+    background: #e8f4fd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px dashed #3498db;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.option-btn {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: #333;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.option-btn:hover {
+    background-color: #f1f1f1;
+    border-color: #3498db;
+}
+
+/* Hiệu ứng đúng / sai */
+.option-btn.correct {
+    background-color: #2ecc71 !important;
+    color: white;
+    border-color: #2ecc71;
+}
+
+.option-btn.wrong {
+    background-color: #e74c3c !important;
+    color: white;
+    border-color: #e74c3c;
+}
+
+#resultMessage {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#nextBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#nextBtn:hover {
+    background-color: #2980b9;
+}
+
+/* Thêm CSS cho phần chứa nút Chưa học */
+.footer-action {
+    display: flex;
+    justify-content: flex-end; /* Đẩy nội dung sang góc bên phải */
+    margin-top: 15px;
+}
+
+#skipBtn {
+    background-color: #95a5a6; /* Màu xám */
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#skipBtn:hover {
+    background-color: #7f8c8d; /* Xám đậm hơn khi di chuột vào */
+}
