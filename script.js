@@ -272,3 +272,23 @@ function nextQuestion() {
 
 // Chạy lần đầu tiên khi mở app
 loadQuiz();
+
+
+//-----------------------------------------------------------------------------
+// Hàm mở bảng chữ cái
+function openTableModal() {
+    document.getElementById('tableModal').style.display = 'flex';
+}
+
+// Hàm đóng bảng chữ cái
+function closeTableModal() {
+    document.getElementById('tableModal').style.display = 'none';
+}
+
+// Đóng modal khi người dùng bấm ra vùng nền tối bên ngoài ảnh
+window.onclick = function(event) {
+    const modal = document.getElementById('tableModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+}
