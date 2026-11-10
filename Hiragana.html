@@ -10,15 +10,22 @@
 
 <div class="quiz-container" style="position: relative;">
         
-<!-- NÚT MỞ BẢNG CHỮ CÁI GÓC TRÊN BÊN PHẢI (Không ảnh hưởng đến chữ ở giữa) -->
-        <button onclick="openTableModal()" style="position: absolute; top: 15px; right: 15px; background: #3498db; border: none; color: white; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 14px;" title="Xem bảng chữ cái">
+<!-- KHU VỰC TIÊU ĐỀ, STREAK VÀ NÚT BẢNG CHỮ -->
+    <div style="position: relative; text-align: center; margin-bottom: 20px; min-height: 40px;">
+        
+        <!-- STREAK NHỎ Ở GÓC TRÁI -->
+        <div id="streakDisplay" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); font-size: 0.9rem; font-weight: bold; color: #ff9800; background: #fff3e0; padding: 4px 8px; border-radius: 6px;">
+            🔥 0
+        </div>
+
+        <!-- TIÊU ĐỀ NẰM CHÍNH GIỮA -->
+        <h2 style="margin: 0; font-size: 40px; font-weight: bold;">Hiragana</h2>
+        
+        <!-- NÚT BẢNG CHỮ Ở GÓC PHẢI -->
+        <button onclick="openTableModal()" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: #3498db; border: none; color: white; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 14px;" title="Xem bảng chữ cái">
             📋
         </button>
-
-        <h2>Hiragana</h2>
-
-        <div id="streakDisplay" style="font-size: 1.5rem; font-weight: bold; text-align: center; color: #ff9800; margin-bottom: 15px;">🔥 Streak: 0</div>
-
+    </div>
         
         <!-- Khu vực hiển thị "hình ảnh" của chữ cái (to, rõ) -->
         <div id="characterDisplay" class="char-box">

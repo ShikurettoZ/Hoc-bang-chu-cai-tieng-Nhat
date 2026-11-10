@@ -243,7 +243,7 @@ function checkAnswer(selectedIndex) {
 
         // TĂNG ĐIỂM STREAK KHI ĐÚNG
         streakCount++;
-        streakDisplay.textContent = "🔥 Streak: " + streakCount;
+        streakDisplay.textContent = "🔥 " + streakCount;
     } else {
         selectedBtn.classList.add('wrong');
         resultMessage.textContent = "Incorrect! 😢";
@@ -251,7 +251,7 @@ function checkAnswer(selectedIndex) {
 
         // RESET STREAK VỀ 0 KHI SAI
         streakCount = 0;
-        streakDisplay.textContent = "🔥 Streak: " + streakCount;
+        streakDisplay.textContent = "🔥 " + streakCount;
         
         // Sáng lên đáp án đúng cho người dùng thấy
         optionButtons.forEach(btn => {
