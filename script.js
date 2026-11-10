@@ -64,7 +64,73 @@ const quizData = [
     // 10. Wa-row & N
     { char: "わ", meaning: "Wa" },
     { char: "を", meaning: "Wo" },
-    { char: "ん", meaning: "N" }
+    { char: "ん", meaning: "N" },
+
+    // 1. A-row
+    { char: "A", meaning: "あ" },
+    { char: "I", meaning: "い" },
+    { char: "U", meaning: "う" },
+    { char: "E", meaning: "え" },
+    { char: "O", meaning: "お" },
+
+    // 2. Ka-row
+    { char: "Ka", meaning: "か" },
+    { char: "Ki", meaning: "き" },
+    { char: "Ku", meaning: "く" },
+    { char: "Ke", meaning: "け" },
+    { char: "Ko", meaning: "こ" },
+
+    // 3. Sa-row
+    { char: "Sa", meaning: "さ" },
+    { char: "Shi", meaning: "し" },
+    { char: "Su", meaning: "す" },
+    { char: "Se", meaning: "せ" },
+    { char: "So", meaning: "そ" },
+
+    // 4. Ta-row
+    { char: "Ta", meaning: "た" },
+    { char: "Chi", meaning: "ち" },
+    { char: "Tsu", meaning: "つ" },
+    { char: "Te", meaning: "て" },
+    { char: "To", meaning: "と" },
+
+    // 5. Na-row
+    { char: "Na", meaning: "な" },
+    { char: "Ni", meaning: "に" },
+    { char: "Nu", meaning: "ぬ" },
+    { char: "Ne", meaning: "ね" },
+    { char: "No", meaning: "の" },
+
+    // 6. Ha-row
+    { char: "Ha", meaning: "は" },
+    { char: "Hi", meaning: "ひ" },
+    { char: "Fu", meaning: "ふ" },
+    { char: "He", meaning: "へ" },
+    { char: "Ho", meaning: "ほ" },
+
+    // 7. Ma-row
+    { char: "Ma", meaning: "ま" },
+    { char: "Mi", meaning: "み" },
+    { char: "Mu", meaning: "む" },
+    { char: "Me", meaning: "め" },
+    { char: "Mo", meaning: "も" },
+
+    // 8. Ya-row
+    { char: "Ya", meaning: "や" },
+    { char: "Yu", meaning: "ゆ" },
+    { char: "Yo", meaning: "よ" },
+
+    // 9. Ra-row
+    { char: "Ra", meaning: "ら" },
+    { char: "Ri", meaning: "り" },
+    { char: "Ru", meaning: "る" },
+    { char: "Re", meaning: "れ" },
+    { char: "Ro", meaning: "ろ" },
+
+    // 10. Wa-row & N
+    { char: "Wa", meaning: "わ" },
+    { char: "Wo", meaning: "を" },
+    { char: "N", meaning: "ん" }    
 ];
 
 let currentQuiz = null; // Biến lưu câu hỏi hiện tại
@@ -73,8 +139,49 @@ const optionButtons = document.querySelectorAll('.option-btn');
 const resultMessage = document.getElementById('resultMessage');
 const nextBtn = document.getElementById('nextBtn');
 const footerAction = document.querySelector('.footer-action');
+let streakCount = 0; // Biến đếm số câu đúng liên tiếp
+const streakDisplay = document.getElementById('streakDisplay'); // Lấy phần tử hiển thị từ HTML
+//function loadQuiz() {
+    // Reset trạng thái giao diện
+//    resultMessage.textContent = "";
+//    nextBtn.style.display = "none";
+//    optionButtons.forEach(btn => {
+//        btn.classList.remove('correct', 'wrong');
+//        btn.disabled = false;
+//    });
 
-function loadQuiz() {
+// HIỆN LẠI NÚT "CHƯA HỌC" KHI SANG CÂU MỚI
+//    if (footerAction) footerAction.style.display = "flex";
+//
+//    optionButtons.forEach(btn => {
+ //       btn.classList.remove('correct', 'wrong');
+ //       btn.disabled = false;
+ //   });
+
+    // LẤY NGẪU NHIÊN MỘT CHỮ CÁI
+//    const randomIndex = Math.floor(Math.random() * quizData.length);
+//    currentQuiz = quizData[randomIndex];
+//    charDisplay.textContent = currentQuiz.char;
+
+    // Tạo các đáp án nhiễu ngẫu nhiên + 1 đáp án đúng
+//    let options = [currentQuiz.meaning];
+//    while (options.length < 4) {
+//        let randomQuiz = quizData[Math.floor(Math.random() * quizData.length)];
+//        if (!options.includes(randomQuiz.meaning)) {
+//            options.push(randomQuiz.meaning);
+//        }
+//    }
+
+    // Xáo trộn vị trí các đáp án A, B, C, D
+//    options.sort(() => Math.random() - 0.5);
+
+    // Gắn đáp án lên các nút bấm
+//    optionButtons.forEach((btn, index) => {
+//        btn.textContent = options[index];
+//    });
+//}
+
+    function loadQuiz() {
     // Reset trạng thái giao diện
     resultMessage.textContent = "";
     nextBtn.style.display = "none";
@@ -83,23 +190,28 @@ function loadQuiz() {
         btn.disabled = false;
     });
 
-// HIỆN LẠI NÚT "CHƯA HỌC" KHI SANG CÂU MỚI
+    // HIỆN LẠI NÚT "CHƯA HỌC" KHI SANG CÂU MỚI
     if (footerAction) footerAction.style.display = "flex";
 
-    optionButtons.forEach(btn => {
-        btn.classList.remove('correct', 'wrong');
-        btn.disabled = false;
-    });
-
-    // LẤY NGẪU NHIÊN MỘT CHỮ CÁI
+    // LẤY NGẪU NHIÊN MỘT CÂU HỎI
     const randomIndex = Math.floor(Math.random() * quizData.length);
     currentQuiz = quizData[randomIndex];
     charDisplay.textContent = currentQuiz.char;
 
-    // Tạo các đáp án nhiễu ngẫu nhiên + 1 đáp án đúng
+    // PHÂN LOẠI ĐÁP ÁN ĐỂ ĐỒNG BỘ NÚT BẤM
+    // Kiểm tra xem đáp án (meaning) có phải là chữ Latinh (a-z, A-Z) hay không
+    const isRomajiAnswer = /^[a-zA-Z]/.test(currentQuiz.meaning);
+
+    // Lọc ra một mảng chỉ chứa các từ vựng CÙNG KIỂU với đáp án hiện tại
+    const sameTypeData = quizData.filter(item => {
+        const isItemRomaji = /^[a-zA-Z]/.test(item.meaning);
+        return isItemRomaji === isRomajiAnswer;
+    });
+
+    // Tạo các đáp án nhiễu ngẫu nhiên (chỉ lấy từ mảng cùng kiểu) + 1 đáp án đúng
     let options = [currentQuiz.meaning];
     while (options.length < 4) {
-        let randomQuiz = quizData[Math.floor(Math.random() * quizData.length)];
+        let randomQuiz = sameTypeData[Math.floor(Math.random() * sameTypeData.length)];
         if (!options.includes(randomQuiz.meaning)) {
             options.push(randomQuiz.meaning);
         }
@@ -114,6 +226,7 @@ function loadQuiz() {
     });
 }
 
+
 function checkAnswer(selectedIndex) {
     const selectedBtn = optionButtons[selectedIndex];
 
@@ -127,10 +240,18 @@ function checkAnswer(selectedIndex) {
         selectedBtn.classList.add('correct');
         resultMessage.textContent = "Correct! 🎉";
         resultMessage.style.color = "#2ecc71";
+
+        // TĂNG ĐIỂM STREAK KHI ĐÚNG
+        streakCount++;
+        streakDisplay.textContent = "🔥 Streak: " + streakCount;
     } else {
         selectedBtn.classList.add('wrong');
         resultMessage.textContent = "Incorrect! 😢";
         resultMessage.style.color = "#e74c3c";
+
+        // RESET STREAK VỀ 0 KHI SAI
+        streakCount = 0;
+        streakDisplay.textContent = "🔥 Streak: " + streakCount;
         
         // Sáng lên đáp án đúng cho người dùng thấy
         optionButtons.forEach(btn => {
