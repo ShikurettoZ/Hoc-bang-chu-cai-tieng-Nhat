@@ -11,7 +11,7 @@
 <div class="quiz-container" style="position: relative;">
         
 <!-- KHU VỰC TIÊU ĐỀ, STREAK VÀ NÚT BẢNG CHỮ -->
-    <div style="position: relative; text-align: center; margin-bottom: 20px; min-height: 40px;">
+    <div style="position: relative; text-align: center; margin-bottom: 20px; min-height: 50px; display: flex; align-items: center; justify-content: center;">
         
         <!-- STREAK NHỎ Ở GÓC TRÁI -->
         <div id="streakDisplay" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); font-size: 0.9rem; font-weight: bold; color: #ff9800; background: #fff3e0; padding: 4px 8px; border-radius: 6px;">
@@ -21,9 +21,9 @@
         <!-- TIÊU ĐỀ NẰM CHÍNH GIỮA -->
         <h2 style="margin: 0; font-size: 40px; font-weight: bold;">Hiragana</h2>
         
-        <!-- NÚT BẢNG CHỮ Ở GÓC PHẢI -->
-        <button onclick="openTableModal()" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: #3498db; border: none; color: white; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 14px;" title="Xem bảng chữ cái">
-            📋
+        <!-- NÚT BẤM DÙNG ẢNH GIF Ở GÓC PHẢI (Đã thêm căn giữa theo chiều dọc) -->
+        <button onclick="openTableModal()" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: transparent; border: none; cursor: pointer; padding: 0; display: flex; align-items: center;" title="Xem bảng chữ cái">
+            <img src="icon-bang.gif" alt="Bảng chữ" style="width: 65px; height: 70px; object-fit: contain; display: block;">
         </button>
     </div>
         
